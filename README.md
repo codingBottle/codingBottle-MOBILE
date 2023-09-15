@@ -26,6 +26,17 @@
 
 - 공격자는 발표자의 주제를 공부하고 관련 질문을 최소 2개 이상 준비한다.
 - 수비를 하는 사람(발표자) [iOS 면접 질문](https://github.com/JeaSungLEE/iOSInterviewquestions) 중 3개를 골라 적어도 다음 스터디 3일 전까지 공유한다.
+<details>
+<summary>AD 진행 리스트</summary>
+<div markdown="1">       
+
+[week01](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week01/week01_question.md)
+
+[week02](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week02/week02_question.md)
+
+
+</div>
+</details>
 
 ## 🛟 Repository 구조
 주차별로 폴더를 생성해 해당 주차 폴더 안에 자신이 공부한 파일을 업로드한다.
