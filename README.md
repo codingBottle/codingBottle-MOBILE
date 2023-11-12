@@ -1,6 +1,7 @@
 # 📱 CodingBottle-Mobile
 
 ## 💖 Mobile Member
+
 <table>
  <tr>
     <td align="center"><a href="https://github.com/Surviveyeomi"><img src="https://avatars.githubusercontent.com/u/108610989?v=4" width="130px;" alt=""></a></td>
@@ -28,7 +29,7 @@
 - 수비를 하는 사람(발표자) [iOS 면접 질문](https://github.com/JeaSungLEE/iOSInterviewquestions) 중 3개를 골라 적어도 다음 스터디 3일 전까지 공유한다.
 <details>
 <summary>AD 진행 리스트</summary>
-<div markdown="1">       
+<div markdown="1">
 
 [week01](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week01/week01_question.md)
 
@@ -40,17 +41,26 @@
 
 [week05](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week05/week05_question.md)
 
+[week06](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week06/week06_question.md)
+
+[week07](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week07/week07_question.md)
+
+[week08](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week08/week08_question.md)
+
 </div>
 </details>
 
 ## 🛟 Repository 구조
+
 주차별로 폴더를 생성해 해당 주차 폴더 안에 자신이 공부한 파일을 업로드한다.
 
 ## ⚠️ Convension
+
 ### Commit
+
 | 이모지 | 태그     | 설명                                  |
 | :----- | :------- | :------------------------------------ |
-| ✨     | feat     | 새로운 기능, 파일 추가                      |
+| ✨     | feat     | 새로운 기능, 파일 추가                |
 | 🐛     | fix      | 버그 수정                             |
 | ♻️     | refactor | 코드 리팩토링                         |
 | ✏️     | comment  | 주석 추가(코드 변경 X) 혹은 오타 수정 |
@@ -58,9 +68,11 @@
 | 🚚     | rename   | 파일, 폴더명 수정 혹은 이동           |
 
 ### PR
+
 - **[week(회차)] (이름) 과제 제출** 로 통일한다.
-    - ex. [week01] hanni 과제 제출
+  - ex. [week01] hanni 과제 제출
 
 ### File Name
-- **week(회차)_(이름).md**로 통일한다.
-    - ex. week01_hanni.md
+
+- **week(회차)\_(이름).md**로 통일한다.
+  - ex. week01_hanni.md
