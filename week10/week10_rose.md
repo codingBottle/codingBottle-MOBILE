@@ -96,3 +96,37 @@
         return result
     }
     ```
+
+---
+
+## 모바일 세션
+
+### 1번 문제 :  [원하는 문자열 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181878)
+
+- 성공 코드
+    
+    ```swift
+    import Foundation
+    
+    func solution(_ myString:String, _ pat:String) -> Int {
+        let myString = myString.lowercased()
+        let pat = pat.lowercased()
+    
+        if myString.contains(pat) {
+            return 1
+        } else { return 0 }
+    }
+    ```
+    
+
+### 2번 문제 : [ad 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/181870)
+
+- 성공 코드
+    
+    ```swift
+    import Foundation
+    
+    func solution(_ strArr:[String]) -> [String] {
+        return strArr.filter { !$0.contains("ad") }
+    }
+    ```
