@@ -90,3 +90,28 @@
     }
 
    ```
+### 1번 문제 : [원하는 문자열 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181878)
+- 풀이실패 유형 : x
+- 성공 코드
+    ```swift
+    import Foundation
+    func solution(_ myString: String, _ pat: String) -> Int {
+        let lowerMyString = myString.lowercased()
+        let lowerPat = pat.lowercased()
+    
+    return lowerMyString.contains(lowerPat) ? 1 : 0
+}
+    ```
+
+### 2번 문제 : [ad 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/181870)
+- 풀이실패 유형 : x
+- 성공 코드
+    ```swift
+    import Foundation
+    func solution(_ strArr:[String]) -> [String] {
+        let result = strArr.filter { word in
+        !word.contains("ad")
+    }
+    return result
+}
+    ```
