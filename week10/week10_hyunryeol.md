@@ -117,3 +117,29 @@
     }
     ```
 <br>
+
+- - -
+
+### 1번 문제 : [원하는 문자열 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181878)
+- 풀이실패 유형 : x
+- 성공 코드
+    ```swift
+    import Foundation
+
+    func solution(_ myString:String, _ pat:String) -> Int {
+        return myString.uppercased().contains(pat.uppercased()) ? 1 : 0
+    }
+    ```
+<br>
+
+### 1번 문제 : [ad 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/181870)
+- 풀이실패 유형 : x
+- 성공 코드
+    ```swift
+    import Foundation
+
+    func solution(_ strArr:[String]) -> [String] {
+        return strArr.filter { !$0.contains("ad") }
+    }
+    ```
+<br>
