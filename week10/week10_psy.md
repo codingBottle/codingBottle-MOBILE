@@ -1,4 +1,4 @@
-# week10 Algorithm \_ OOO
+# week10 Algorithm \_ 박신영
 
 ### 1번 문제 : [암호해독](https://school.programmers.co.kr/learn/courses/30/lessons/120892)
 
@@ -9,6 +9,7 @@
   1. 빈 문자열 생성 이후 cnt = 1 역시 생성
   2. 이후 cipher 반복문 돌려 code로 나눈 나머지 값이 0인 문자를 문자열에 담고 리턴. 종료
 - 내 코드
+
   ```swift
   import Foundation
 
@@ -24,15 +25,13 @@
   return result
   }
   ```
+
 - 참고하면 좋을 코드
-      ```swift
-      func solution(_ cipher: String, _ code: Int) -> String {
-      (0..<cipher.count).filter { $0 % code == code - 1 }.map {
-          String(Array(cipher)[$0])
-      }.joined(separator: "")
-      }
-      ```
-  <br>
+  ```swift
+    func solution(_ cipher: String, _ code: Int) -> String {
+    (0..<cipher.count).filter { $0 % code == code - 1 }.map { String(Array(cipher)[$0])}.joined(separator: "")
+    }
+  ```
 
 ---
 
@@ -48,34 +47,34 @@
   4. 이후 return result 종료.
 - 내 코드
 
-      ```swift
-      import Foundation
+  ```swift
+  import Foundation
 
-      func solution(_ babbling:[String]) -> Int {
-          var result = 0
-          var word = ""
-          var cnt = 0
+  func solution(_ babbling:[String]) -> Int {
+      var result = 0
+      var word = ""
+      var cnt = 0
 
-          let todo = ["aya", "ye", "woo", "ma"]
+      let todo = ["aya", "ye", "woo", "ma"]
 
-          for i in babbling {
-              for j in i {
-                  word += String(j)
-                  if todo.contains(word) {
-                      word = ""
-                      cnt += 1
-                  }
+      for i in babbling {
+          for j in i {
+              word += String(j)
+              if todo.contains(word) {
+                  word = ""
+                  cnt += 1
               }
-              if word.count == 0 && cnt > 0 {
-                  result += 1
-              }
-              word = ""
           }
-          return result
+          if word.count == 0 && cnt > 0 {
+              result += 1
+          }
+          word = ""
       }
-      ```
+      return result
+  }
+  ```
 
-  <br>
+<br>
 
 ---
 
@@ -92,20 +91,56 @@
   4. 이후 result에 담긴 글자들을 joined 함수를 이용하여 문자열로 합쳐 리턴. 종료
 - 내 코드
 
-      ```swift
-      import Foundation
+  ```swift
+  import Foundation
 
-      func solution(_ s:String, _ skip:String, _ index:Int) -> String {
-      let alphabets = Array("abcdefghijklmnopqrstuvwxyz").filter { !skip.contains($0)}
+  func solution(_ s:String, _ skip:String, _ index:Int) -> String {
+    let alphabets = Array("abcdefghijklmnopqrstuvwxyz").filter { !skip.contains($0)}
 
-      let result = s.map { (char: Character) -> String in
-          let beforeIndex = alphabets.firstIndex(of: char)!
-          let afterIndex = (beforeIndex + index) % alphabets.count
-          return String(alphabets[afterIndex])
-      }
+    let result = s.map { (char: Character) -> String in
+        let beforeIndex = alphabets.firstIndex(of: char)!
+        let afterIndex = (beforeIndex + index) % alphabets.count
+        return String(alphabets[afterIndex])
+    }
 
-      return result.joined(separator: "")
-      }
-      ```
+    return result.joined(separator: "")
+  }
+  ```
+
+  <br>
+
+---
+
+### 2024.01.04 \_ 모바일 세션 중 풀이한 것
+
+### 1번 문제 : [원하는 문자열 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181878)
+
+- 내 코드
+
+  ```swift
+  import Foundation
+
+  func solution(_ myString:String, _ pat:String) -> Int {
+    return myString.lowercased().contains(pat.lowercased()) ? 1 : 0
+    }
+  ```
+
+  <br>
+
+---
+
+### 2번 문제 : [ad제거](https://school.programmers.co.kr/learn/courses/30/lessons/181870)
+
+- 내 코드
+
+  ```swift
+  import Foundation
+
+    func solution(_ strArr:[String]) -> [String] {
+        return strArr.filter( {
+            !$0.contains("ad")
+        } )
+    }
+  ```
 
   <br>
