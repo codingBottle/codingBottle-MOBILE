@@ -101,3 +101,58 @@ func solution(_ s:String, _ skip:String, _ index:Int) -> String {
     return answer
 }
 ```
+
+> 1번 문제 : [원하는 문자열 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/181878)
+> 
+
+풀이실패 유형 : X
+
+- 풀기까지 걸린 시간 : 10분
+- 사용한 알고리즘 : 완전탐색
+- 접근부터 풀이까지의 과정
+    1. 대소문자를 구분하지 않는다는 구문을 보고 문자열을 전부 소or대문자로 변경 후 처리 가능함을 유추
+    2. 소문자로 변경 이후 포함할 경우 1을 , 그렇지 않을 경우 0 을 리턴
+- 성공 코드
+
+```swift
+import Foundation
+
+func solution(_ myString:String, _ pat:String) -> Int {
+    var a = myString.lowercased()
+    var b = pat.lowercased()
+    if a.contains(b) {
+        return 1
+    }
+    else {
+    return 0
+    }
+}
+```
+
+> 2번 문제 : [ad 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/181870)
+> 
+
+풀이실패 유형 : X
+
+- 풀기까지 걸린 시간 : 10분
+- 사용한 알고리즘 : 완전탐색
+- 접근부터 풀이까지의 과정
+    1. 배열을 루프하며 ad를 가진 문자열을 정답 배열에 삽입하면 되겠다고생각함
+- 성공 코드
+
+```swift
+import Foundation
+
+func solution(_ strArr:[String]) -> [String] {
+    var answer = [String]()
+    for i in strArr {
+        if i.contains("ad") {
+            continue
+        }
+        else {
+            answer.append(i)
+        }
+    }
+    return answer
+}
+```
