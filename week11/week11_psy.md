@@ -144,14 +144,6 @@
 
   ```swift
   func solution(_ seoul:[String]) -> String {
-    return "김서방은 \(seoul.firstIndex(of: "Kim")!)에 있다"
-  }
-  ```
-
-- 주의해야할 점
-  - 아래와 같이 옵셔널 바인딩을 사용한다면 시간초과가 발생한다.
-  ```swift
-  func solution(_ seoul:[String]) -> String {
-      return "김서방은 \(seoul.firstIndex(of: "Kim") ?? 0)에 있다"
+    return "김서방은 \(seoul.firstIndex(of: "Kim") ?? 0)에 있다"
   }
   ```
