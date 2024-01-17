@@ -1,5 +1,3 @@
-# 11주차
-
 ### 1번 문제 :  [중복된 문자 제거](https://school.programmers.co.kr/learn/courses/30/lessons/120888)
 
 - 풀이실패 유형 : X
@@ -35,7 +33,7 @@
 - 접근부터 풀이까지의 과정
     1. 배열로 만들고 set을 이용하여 중복되는 값 없이 만들고 개수를 저장함
     2. 중복되는 값이 하나부터 네개일 때까지의 케이스를 나눠서 리턴
-- 성공 코드
+- 실패 코드
     
     ```swift
     import Foundation
@@ -56,6 +54,36 @@
             return array.min()!
         default:
             return 0
+        }
+    }
+    ```
+    
+- 성공 코드
+    
+    ```swift
+    import Foundation
+    
+    func solution(_ a:Int, _ b:Int, _ c:Int, _ d:Int) -> Int {
+        let nums = [a, b, c, d]
+        let counts = nums.map { num in nums.filter { $0 == num }.count }
+        
+        if counts.max() == 4 {
+            return a * 1111
+    
+        } else if counts.max() == 3 {
+            let p = nums[counts.firstIndex(of: 3)!]
+            let q = nums[counts.firstIndex(of: 1)!]
+                    return Int(pow(Double(10 * p + q), 2.0))
+    
+        } else if counts.max() == 2 {
+            if counts.min() == 2 {
+                return a == b ? (a + c) * abs(a - c) : (a + b) * abs(a - b)
+            } else {
+                let p = nums[counts.firstIndex(of: 2)!]
+                return nums.filter { $0 != p }.reduce(1, *)
+            }
+        } else {
+            return nums.min()!
         }
     }
     ```
