@@ -6,9 +6,9 @@
 - 풀기까지 걸린 시간 : 5분 내외
 - 어떤 알고리즘을 사용했는지 : 완전탐색
 - 접근부터 풀이까지의 과정
-  1. Character 타입 빈 배열 result 생성
+  1. Character 타입 빈 배열 result 생성.
   2. 이후 my_string 반복문 돌려 result에 있는 글자인지 확인하여 없는 글자라면 추가.
-  3. 종료
+  3. 종료.
 - 내 코드
 
   ```swift
@@ -26,10 +26,20 @@
     }
   ```
 
-<!-- - 고차함수 활용 풀이 코드
+- 고차함수 활용 풀이 코드
+
   ```swift
-    ff
-  ``` -->
+  import Foundation
+
+  func solution(_ my_string:String) -> String {
+    var set = Set<Character>()
+    return my_string.filter{set.insert($0).inserted}
+  }
+  ```
+
+  - String 타입인 my_string에 filter 함수를 사용하였으니 반환값은 string이며, 빈 Set에 insert($0) 을 사용하여 추가를 시도하고, Set에 없는 글자라서 추가가 됐다면 inserted 를 통해 true가 반환되니 해당 글자는 true로 인식되어 필터링 된 my_string에 추가된다.
+  - 이후 필터링을 마친 my_string을 리턴.
+  - 종료.
 
 <br>
 
@@ -39,7 +49,7 @@
 
 - 풀이실패 유형 : X
 - 풀기까지 걸린 시간 : 20분 내외
-- 어떤 알고리즘을 사용했는지 : 조건문
+- 어떤 알고리즘을 사용했는지 : 조건문
 - 접근부터 풀이까지의 과정
 
   1. 아래 5개의 case에 맞게 5개 상황으로 나눠 case 1, case 5는 Set() 사용하여 처리.
