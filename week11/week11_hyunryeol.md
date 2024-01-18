@@ -76,3 +76,17 @@
     }   
     ```
 <br>
+
+----
+
+### 1번 문제 : [외계어 사전](https://school.programmers.co.kr/learn/courses/30/lessons/120869)
+- 풀이실패 유형 : x
+- 성공 코드
+    ```swift
+    import Foundation
+
+    func solution(_ spell: [String], _ dic: [String]) -> Int {   
+        return dic.map { String($0.sorted()) }.contains(spell.sorted().joined()) ? 1 : 2 
+    }
+    ```
+<br>
