@@ -87,3 +87,28 @@
       return "김서방은 \(seoul.firstIndex(of: "Kim")!)에 있다"
   }
     ```
+
+### 1번 문제 : [외계어 사전](https://school.programmers.co.kr/learn/courses/30/lessons/120869)
+- 풀이실패 유형 : X
+- 성공 코드
+    ```swift
+    import Foundation
+    func solution(_ spell: [String], _ dic: [String]) -> Int {
+    // 알파벳을 저장할 Set을 생성하고 spell의 알파벳을 모두 추가합니다.
+    var spellSet = Set(spell.joined())
+
+    // dic의 각 단어를 순회하면서 해당 단어의 알파벳이 spellSet에 모두 포함되어 있는지 확인
+    for word in dic {
+        // word의 알파벳을 저장할 Set을 생성하고 word의 알파벳을 모두 추가
+        let wordSet = Set(word)
+
+        // wordSet과 spellSet이 같으면 모든 알파벳이 포함된 것이므로 1을 반환
+        if wordSet == spellSet {
+            return 1
+        }
+    }
+    // 모든 단어를 확인한 후에도 반환되지 않았다면 2를 반환
+    return 2
+}
+
+    ```
