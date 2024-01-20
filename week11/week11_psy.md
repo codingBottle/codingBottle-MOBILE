@@ -157,3 +157,30 @@
     return "김서방은 \(seoul.firstIndex(of: "Kim") ?? 0)에 있다"
   }
   ```
+
+  <br>
+
+---
+
+### 2024.01.18 \_ 모바일 세션 중 풀이한 것
+
+### 1번 문제 : [외계어 사전](https://school.programmers.co.kr/learn/courses/30/lessons/120869)
+
+- 내 코드
+
+  ```swift
+  import Foundation
+  func solution(_ spell: [String], _ dic: [String]) -> Int {
+    let spellSet = Set(spell.joined())
+    for word in dic {
+        if spellSet == Set(word) {
+            return 1
+        }
+    }
+    return 2
+  }
+  ```
+
+  - Set은 순서를 고려하지 않는 데이터 구조이기에, 원소의 순서나 중복 여부는 고려하지 않고, 원소의 존재 여부만을 판단하기에 위와 같은 풀이가 가능하다.
+
+  <br>
