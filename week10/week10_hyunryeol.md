@@ -34,8 +34,7 @@
         .joined()
     return result
     }   
-    ```
-    ```swift
+    
     import Foundation
     func solution(_ cipher:String, _ code:Int) -> String {
         let result = stride(from: code - 1, to: cipher.count, by: code)
