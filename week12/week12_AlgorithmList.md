@@ -1,4 +1,4 @@
-# Week11 Algorithm Problems List
+# Week12 Algorithm Problems List
 
 1번 문제 : [더 크게 합치기](https://school.programmers.co.kr/learn/courses/30/lessons/181939) <br>
 2번 문제 : [피자 나눠 먹기 (2)](https://school.programmers.co.kr/learn/courses/30/lessons/120815) <br>
