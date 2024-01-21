@@ -56,3 +56,30 @@ func solution(_ seoul:[String]) -> String {
     return "김서방은 \(answer)에 있다"
 }
 ```
+<br>
+
+ ----
+
+ ### 1번 문제 : [외계어 사전](https://school.programmers.co.kr/learn/courses/30/lessons/120869)
+ - 풀이실패 유형 : x
+ - 성공 코드
+     ```swift
+     import Foundation
+
+func solution(_ spell:[String], _ dic:[String]) -> Int {
+    let a = spell.count
+    for i in dic {
+        var answer = 0
+        for j in spell {
+            if i.contains(j) {
+                answer += 1
+            }
+        }
+        if a == answer {
+        return 1
+            }
+    }
+        return 2
+}
+     ```
+ <br>
