@@ -29,12 +29,42 @@ func solution(_ my_string:String) -> String {
 
 > 2번 문제 : [주사위](https://school.programmers.co.kr/learn/courses/30/lessons/181916)
 > 
-- 풀이실패 유형 : O
+- 풀이실패 유형 : 2. 어떻게 풀어야 할 지 아이디어는 생각했지만 어떤 유형의 알고리즘을 사용해야하는지 모르겠다.
     - 풀기까지 걸린 시간 : x
 - 사용한 알고리즘 : 완전탐색
 - 접근부터 풀이까지의 과정
     1. dictionary 형태로 구현한 뒤 key: val 별로 값을 저장 후 카운트한뒤 이를 이용한 풀이 시도
     2. 실패
+- 성공 코드
+
+```swift
+import Foundation
+
+func solution(_ a:Int, _ b:Int, _ c:Int, _ d:Int) -> Int {
+    let nums = [a, b, c, d]
+    let counts = nums.map { num in nums.filter { $0 == num }.count }
+    
+    if counts.max() == 4 {
+        return a * 1111
+
+    } else if counts.max() == 3 {
+        let p = nums[counts.firstIndex(of: 3)!]
+        let q = nums[counts.firstIndex(of: 1)!]
+                return Int(pow(Double(10 * p + q), 2.0))
+
+    } else if counts.max() == 2 {
+        if counts.min() == 2 {
+            return a == b ? (a + c) * abs(a - c) : (a + b) * abs(a - b)
+        } else {
+            let p = nums[counts.firstIndex(of: 2)!]
+            return nums.filter { $0 != p }.reduce(1, *)
+        }
+    } else {
+        return nums.min()!
+    }
+}
+```
+<br>
 
 > 3번 문제 : [서울에서 김서방 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/12919)
 > 
@@ -64,8 +94,7 @@ func solution(_ seoul:[String]) -> String {
  - 풀이실패 유형 : x
  - 성공 코드
      ```swift
-     import Foundation
-
+import Foundation
 func solution(_ spell:[String], _ dic:[String]) -> Int {
     let a = spell.count
     for i in dic {
@@ -80,6 +109,5 @@ func solution(_ spell:[String], _ dic:[String]) -> Int {
             }
     }
         return 2
-}
+        }
      ```
- <br>
