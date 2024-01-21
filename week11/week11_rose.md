@@ -88,6 +88,35 @@
     }
     ```
     
+- 성공 코드
+    ```swift
+    import Foundation
+
+    func solution(_ a:Int, _ b:Int, _ c:Int, _ d:Int) -> Int {
+        
+        var Dict: [Int : Int] = [:]
+        
+        for num in [a, b, c, d] {
+            Dict[num, default: 0] += 1
+        }
+
+        let keyValueArray = Array(Dict).sorted {$0.value > $1.value}
+        
+        switch keyValueArray.count {
+            case 1: return keyValueArray[0].key * 1111
+            case 2:
+                let p: Int = keyValueArray[0].key
+                let q: Int = keyValueArray[1].key
+                if keyValueArray[0].value == keyValueArray[1].value { return (p + q) * abs(p - q)}
+                else { return Int(pow(Double(10 * p + q), 2)) }
+            case 3:
+                return keyValueArray[1].key * keyValueArray[2].key
+            default: return min(a, b, c, d)
+        }
+    }
+    ```
+
+    
 
 ### 3번 문제 :  [서울에서 김서방 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/12919)
 
@@ -110,19 +139,23 @@
 
 ## 모바일 세션
 
-### 1번 문제 :
+### 1번 문제 : [외계인 사전](https://school.programmers.co.kr/learn/courses/30/lessons/120869)
 
 - 성공 코드
     
     ```swift
-    
-    ```
-    
+    import Foundation
 
-### 2번 문제 :
+    func solution(_ spell: [String], _ dic: [String]) -> Int {
+        let sortedSpell = spell.sorted().joined()
 
-- 성공 코드
-    
-    ```swift
-    
+        for word in dic {
+            let sortedWord = String(word.sorted())
+            if sortedWord == sortedSpell {
+                return 1
+            }
+        }
+
+        return 2
+    }
     ```
