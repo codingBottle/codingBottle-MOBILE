@@ -70,7 +70,7 @@
 
 ### AD 각 주차별 질문 리스트
 
-> [week10](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week10/week10_AlgorithmList.md) <br></br> [week11](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week11/week11_AlgorithmList.md) <br>
+> [week10](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week10/week10_AlgorithmList.md) <br></br> [week11](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week11/week11_AlgorithmList.md) <br></br> [week12](https://github.com/codingBottle/codingBottle-MOBILE/blob/main/week12/week12_AlgorithmList.md) <br>
 
 <br>
 
