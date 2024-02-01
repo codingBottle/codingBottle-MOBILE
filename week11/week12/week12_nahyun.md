@@ -84,30 +84,32 @@
 
 
 ### 4번 문제 : [배열 조각하기](https://school.programmers.co.kr/learn/courses/30/lessons/181893)
-- 풀이실패 유형 : O
-- 풀기까지 걸린 시간 : 
-- 어떤 알고리즘을 사용했는지 : 
+- 풀이실패 유형 : X
+- 풀기까지 걸린 시간 : 1시간 이상
+- 어떤 알고리즘을 사용했는지 : 배열 슬라이싱
 - 접근부터 풀이까지의 과정
+1. 반복문을 사용하여 쿼리 배열을 순회
+2. 짝수 인덱스일 때는 시작 인덱스부터 끝 인덱스까지의 부분 배열을 유지
+3. 홀수 인덱스일 때는 시작 인덱스 이후의 부분 배열을 유지
+4. 범위가 결정된 부분 배열 슬라이싱 후 Array()로 반환
 
 - 성공 코드
     ```swift
-    func solution(_ arr: [Int], _ queries: [Int]) -> [Int] {
-    var resultArr = arr
-
-    for (index, query) in queries.enumerated() {
-        if query < resultArr.count {
-            if index % 2 == 0 {
-                resultArr = Array(resultArr[(query+1)...])
-            } else {
-                resultArr = Array(resultArr[..<query])
-            }
-        } else {
-            return []
-        }
-    }
+    import Foundation
+    func solution(_ arr:[Int], _ query:[Int]) -> [Int] {
+    var first : Int = 0
+    var last : Int = arr.count
     
-    return resultArr
-}
+    for index in 0..<query.count {
+        if index % 2 == 0 {
+            last = first + query[index]
+            // 짝수일 때 마지막 인덱스
+        } else {
+            first += query[index]
+            // 홀수일 때 마지막 인덱스
+        }   
+    }
 
-
+    return Array(arr[first...last])
+} 
     ```
