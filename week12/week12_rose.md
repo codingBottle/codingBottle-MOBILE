@@ -115,19 +115,27 @@
 
 ## 모바일 세션
 
-### 1번 문제 :
+### 1번 문제 : [체육복](https://school.programmers.co.kr/learn/courses/30/lessons/42862)
 
 - 성공 코드
     
     ```swift
-    
-    ```
-    
+    import Foundation
 
-### 2번 문제 :
+    func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
+        var lostSet = Set(lost).subtracting(reserve).sorted()
+        var reserveSet = Set(reserve).subtracting(lost).sorted()
 
-- 성공 코드
-    
-    ```swift
-    
+        for reserve in reserveSet {
+            if lostSet.contains(reserve - 1) {
+                lostSet = lostSet.filter{ $0 != (reserve - 1) }
+                continue
+            } else if lostSet.contains(reserve + 1) {
+                lostSet = lostSet.filter{ $0 != (reserve + 1) }
+                continue
+            }
+        }
+
+        return n - lostSet.count
+    }
     ```
