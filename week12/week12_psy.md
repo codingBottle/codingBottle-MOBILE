@@ -127,3 +127,62 @@
     return arr
   }
   ```
+
+  <br>
+
+---
+
+### 2024.02.01 \_ 모바일 세션 중 풀이한 것
+
+### 1번 문제 : [체육복](https://school.programmers.co.kr/learn/courses/30/lessons/42862#)
+
+- 내 코드
+
+  ```swift
+  import Foundation
+
+  func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
+    var arr = Array(repeating: 1, count: n+1) // index는 0부터 시작이기에 +1
+
+    lost.forEach { arr[$0] = 0 }
+    reserve.forEach { arr[$0] += 1 }
+
+    for i in 0..<arr.count {
+        if arr[i] == 2 {
+            if i > 0 && arr[i-1] == 0 {
+                arr[i] -= 1
+                arr[i-1] += 1
+            } else if i < arr.count - 1 && arr[i+1] == 0 {
+                arr[i] -= 1
+                arr[i+1] += 1
+            }
+        }
+    }
+
+    return arr.filter{($0 >= 1)}.count-1
+  }
+  ```
+
+- 추가 풀이코드
+
+  ```swift
+  import Foundation
+
+  func solution(_ n: Int, _ lost: [Int], _ reserve: [Int]) -> Int {
+    var lostArr = Set(lost).subtracting(reserve).sorted()
+    var reserveArr = Set(reserve).subtracting(lost).sorted()
+
+    for reserve in reserveArr {
+        if lostArr.contains(reserve - 1) {
+            lostArr = lostArr.filter{($0 != (reserve-1))}
+            continue
+        } else if lostArr.contains(reserve + 1) {
+            lostArr = lostArr.filter{($0 != (reserve+1))}
+            continue
+        }
+    }
+    return (n - lostArr.count)
+  }
+  ```
+
+  <br>
