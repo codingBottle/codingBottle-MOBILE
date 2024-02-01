@@ -113,3 +113,30 @@
     return Array(arr[first...last])
 } 
     ```
+
+
+### 1번 문제 : [체육복](https://school.programmers.co.kr/learn/courses/30/lessons/42862#)
+- 풀이실패 유형 : X
+
+- 성공 코드
+    ```swift
+    func solution(_ n: Int, _ lost: [Int], _ reserve: [Int]) -> Int { 
+        var lostSet = Set(lost).subtracting(reserve)
+        var reserveSet = Set(reserve).subtracting(lost)
+
+        for reserve in reserveSet {
+            if lostSet.contains(reserve - 1) {
+                lostSet.remove(reserve - 1)
+            } else if lostSet.contains(reserve + 1) {
+                lostSet.remove(reserve + 1)
+           }
+        }
+         for lost in lostSet {
+            if reserveSet.contains(lost) {
+                reserveSet.remove(lost)
+        }
+    }
+
+    return n - lostSet.count
+}
+    ```
