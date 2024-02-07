@@ -95,3 +95,28 @@
     }
     ```
 <br>
+
+
+
+## 세션 중 풀이 문제
+
+### 1번 문제 : [체육복](https://school.programmers.co.kr/learn/courses/30/lessons/42862)
+- 풀이실패 유형 : x
+- 성공 코드
+    ```swift
+    import Foundation
+
+    func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
+        var reserveStudent = reserve.filter { !lost.contains($0) }.sorted()
+        var lostStudent = lost.filter { !reserve.contains($0) }
+        for i in reserveStudent {
+            if let i = lostStudent.index(of:i-1){
+                lostStudent.remove(at:i)
+            }else if let i = lostStudent.index(of:i+1){
+                lostStudent.remove(at:i)
+            }
+        }
+        return n - lostStudent.count
+    }
+    ```
+<br>
