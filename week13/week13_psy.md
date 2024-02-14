@@ -68,9 +68,12 @@
 - 어떤 알고리즘을 사용했는지 :
 - 접근부터 풀이까지의 과정
   1. 런타임에러 발생
+- 재시도: 성공 / 30분내외
+  - ceil 함수를 고려하지 못하고 스스로 구현하려던 것이 좋지 않았던 것 같다.
 - 내 코드
 
   ```swift
+  // 1차 실패 케이스
   import Foundation
 
   func solution(_ progresses:[Int], _ speeds:[Int]) -> [Int] {
@@ -100,6 +103,33 @@
     }
     return result
   }
+
+
+  // 2차 성공 케이스
+  import Foundation
+
+  func solution(_ progresses:[Int], _ speeds:[Int]) -> [Int] {
+    var lastReleaseDate: Int = 0
+    var numOfReleases: [Int] = []
+
+    for i in 0..<progresses.count {
+        let progress = Double(progresses[i])
+        let speed = Double(speeds[i])
+        let day = Int(ceil((100-progress) / speed)) // 각 진행률의 일자 계산
+
+        if day > lastReleaseDate {
+
+            // 다음 완료일(day)이 최근 배포일(lastReleaseDate)보다 오래걸리면, 배포갯수 추가
+            lastReleaseDate = day
+            numOfReleases.append(1)
+        } else {
+
+            // 다음 완료일이 최근 배포일보다 조금 걸리면, 앞 순서가 배포될 때 같이 배포되므로 +1
+            numOfReleases[numOfReleases.count - 1] += 1
+        }
+    }
+    return numOfReleases
+  }
   ```
 
 <br>
@@ -112,10 +142,13 @@
 - 풀기까지 걸린 시간 : 60분 초과
 - 어떤 알고리즘을 사용했는지 :
 - 접근부터 풀이까지의 과정
-  1. 제대로 접근하지 못하였던 것 같다.
+  1. 제대로 풀이를 시도하지 못하였던 것 같다.
+- 재시도 : 타인 코드 참고
+  - 풀이를 시작할 때에 모든 경우를 고려하지 못한 것이 문제였던 것 같다.
 - 내 코드
 
   ```swift
+  // 1차 실패 케이스
   import Foundation
 
   func solution(_ n:Int, _ words:[String]) -> [Int] {
@@ -177,6 +210,44 @@
         }
         return [wrongPersonNum, words.count/n]
     }
+  }
+
+
+  // 참고한 코드
+  import Foundation
+
+  func solution(_ n:Int, _ words:[String]) -> [Int] {
+    // 규칙
+    // 1번부터 번호 순서대로 한 사람씩 차례대로 단어를 말합니다.
+    // 마지막 사람이 단어를 말한 다음에는 다시 1번부터 시작합니다.
+    // 앞사람이 말한 단어의 마지막 문자로 시작하는 단어를 말해야 합니다.
+    // 이전에 등장했던 단어는 사용할 수 없습니다.
+    // 한 글자인 단어는 인정되지 않습니다.
+
+    var wordDB: [String] = []
+    for i in 0..<words.count{
+        var word = words[i]
+        // 한 글자 이상인지
+        if word.count < 1{
+            print(word.count)
+            return [i%n + 1, i/n + 1]
+        }
+        // 말했던 단어인지
+        if wordDB.contains(words[i]){
+            print(i)
+            return [i%n + 1, i/n + 1]
+        }
+        // 마지막 문자와 첫 문자가 같은지
+        if wordDB.count != 0{
+            var lastWord = wordDB[wordDB.count - 1]
+            if lastWord.removeLast() != word.removeFirst(){
+                return [i%n + 1, i/n + 1]
+            }
+        }
+        wordDB.append(words[i])
+
+    }
+    return [0,0]
   }
   ```
 
